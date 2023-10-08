@@ -8,6 +8,7 @@ if (!empty($body['id'])) {
         // delete login token (primary key)
         $deleteToken = delete('login_token', "user_id=$userId");
         if ($deleteToken) {
+            
             $deleteUser = delete('users', "id=$userId");
             if ($deleteUser) {
                 setFlashData('msg', 'delete success');
