@@ -288,3 +288,39 @@ function getDateFormat ($strDate, $format) {
         return false;
     }
 }
+
+// check font-awesome icon
+function isFontIcon ($input) {
+    if (strpos($input, '<i class="') != false) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// 
+function getLinkQueryString ($queryString, $key, $value) {
+    $queryArr = explode('&', $queryString);
+    $queryArr = array_filter($queryArr);
+
+    $queryFinal = '';
+
+    if (!empty($queryArr)) {
+        foreach ($queryArr as $item) {
+            $itemArr = explode('=', $item);
+            if ($itemArr[0] == $key) {
+                $itemArr[1] = $value;
+            }
+            $item = implode('=', $itemArr);
+            $queryFinal.=$item.'&';
+        }
+    }
+
+    if (!empty($queryFinal)) {
+        $queryFinal = rtrim($queryFinal, '&');
+    } else {
+        $queryFinal = $queryString;
+    }
+
+    return $queryFinal;
+}

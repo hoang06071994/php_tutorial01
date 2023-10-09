@@ -37,6 +37,32 @@
             </p>
           </a>
         </li>
+        <!-- services -->
+        <li class="nav-item has-treeview <?php echo setActiveSidebar('services') ? 'menu-open' : '';?>">
+          <a href="#" class="nav-link <?php echo setActiveSidebar('services') ? 'active' : '';?>">
+            <i class="fab fas fa-servicestack mr-2 ml-1"></i>
+            <p>
+              Services
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right">2</span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo getLinkAdmin('services');?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Lists services</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo getLinkAdmin('services', 'add');?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add new services</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- services -->
         <!-- blog -->
         <li class="nav-item has-treeview <?php echo setActiveSidebar('blog') ? 'menu-open' : '';?>">
           <a href="#" class="nav-link <?php echo setActiveSidebar('blog') ? 'active' : '';?>">
