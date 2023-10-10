@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer text-center">
   <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
   All rights reserved.
   <div class="float-right d-none d-sm-inline-block">
@@ -47,6 +47,17 @@
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/js/demo.js"></script>
+<?php 
+  $body = getBody();
+  $module = null;
+  if (!empty($body['module'])) {
+    $module = $body['module'];
+  }
+?>
+<script type="text/javascript">
+  let rootUrl = '<?php echo _WEB_HOST_ROOT; ?>'
+  let prefixUrl = '<?php echo getPrefixLinkService($module); ?>'
+</script>
 <script src="<?php echo _WEB_HOST_ADMIN_TEMPLATE; ?>/assets/js/custom.js?ver=<?php echo rand(); ?>"></script>
 </body>
 

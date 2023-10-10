@@ -75,7 +75,7 @@ $old = getFlashData('old');
                     value="<?php echo getOldValue($old, 'slug'); ?>"
                 >
                 <?php echo form_error('slug', $errors, '<span class="text-danger">', '</span>'); ?>
-                <p class="render-link"><b>Link:</b><span> <?php echo _WEB_HOST_ROOT; ?></span></p>
+                <p class="render-link"></p>
             </div>
             <div class="form-group">
                 <label for="">Icon</label>
@@ -108,7 +108,7 @@ $old = getFlashData('old');
                 <label for="">Content</label>
                 <textarea
                     name="content"
-                    class="form-control"
+                    class="form-control editor"
                     placeholder="Content..."
                     value="<?php echo getOldValue($old, 'content'); ?>"
                 ></textarea>
