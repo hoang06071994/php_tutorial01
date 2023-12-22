@@ -6,6 +6,7 @@ $data = [
 layout('header', 'admin', $data);
 layout('sidebar', 'admin', $data);
 layout('breadcrumb', 'admin', $data);
+$userId = isLogin()['user_id'];
 
 if (isPost()) {
     $body = getBody();
@@ -18,10 +19,15 @@ if (isPost()) {
             $errors['name']['min'] = 'Services name must contain at least';
         } 
     }
-
     if (empty($errors)) {
+         
         $dataInsert = [
-            'name' => $body['name'],
+            'name' => trim($body['name']),
+            'slug' => trim($body['slug']),
+            'icon' => trim($body['icon']),
+            'description' => trim($body['description']),
+            'content' => trim($body['content']),
+            'user_id' => $userId,
             'create_at' => date('Y-m-d H:i:s'),
         ];
         $insertStatus = insert('services', $dataInsert);
@@ -37,7 +43,7 @@ if (isPost()) {
         setFlashData('msg', 'Vui lòng kiểm tra dữ liệu nhập vào');
         setFlashData('msg_type', 'danger');
         setFlashData('error', $errors);
-        setFlashData('old', $body);
+        // setFlashData('old', trim($body));
         redirect('?module=services&action=add');
     }
 }
